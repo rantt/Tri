@@ -1,0 +1,7 @@
+<TextureAtlas imagePath="tri_sheet.png">
+	<SubTexture name="tri.png" x="32" y="68" width="29" height="32"/>
+	<SubTexture name="tri_s5.png" x="32" y="34" width="30" height="32"/>
+	<SubTexture name="tri_s6.png" x="0" y="68" width="30" height="32"/>
+	<SubTexture name="tri_s7.png" x="0" y="0" width="31" height="32"/>
+	<SubTexture name="tri_s8.png" x="0" y="34" width="30" height="32"/>
+</TextureAtlas>
