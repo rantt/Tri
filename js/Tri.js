@@ -115,12 +115,12 @@ Tri.prototype = {
 
     // Controls
     if (this.cursors.left.isDown || aKey.isDown)
-        this.sprite.angle -= 5;
+        this.sprite.angle -= 3;
     else if (this.cursors.right.isDown || dKey.isDown)
-        this.sprite.angle += 5;
+        this.sprite.angle += 3;
 
     if (this.cursors.up.isDown || wKey.isDown)
-        this.currentSpeed = 500;
+        this.currentSpeed = 400;
     else if (this.cursors.down.isDown || sKey.isDown)
       this.currentSpeed = 0; //Drift
     else
