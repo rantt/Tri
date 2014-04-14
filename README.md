@@ -2,7 +2,7 @@
 
 **My first attempt at making a game.  It's a top down space shooter.**
 
-You can play it [here](http://198.211.105.87/tri/)
+You can play it [here](http://divideby5.com/games/tri/)
 
 Developed using [Phaser.js](http://phaser.io)
 
