@@ -1,3 +1,7 @@
 canvas {
   margin: auto;
 }
+
+.playScreen {
+    cursor: crosshair
+}

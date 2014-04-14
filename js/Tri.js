@@ -62,9 +62,9 @@ Tri.prototype = {
     this.bullets = this.game.add.group();
     this.bullets.enableBody = true;
     this.bullets.physicsBodyType = Phaser.Physics.ARCADE;
-    this.bullets.createMultiple(30, 'bullet', 0, false);
-    this.bullets.setAll('anchor.x', 0.5);
-    this.bullets.setAll('anchor.y', 0.5);
+    this.bullets.createMultiple(30, 'pbullet', 0, false);
+    this.bullets.setAll('anchor.x', 0);
+    this.bullets.setAll('anchor.y', 0);
     this.bullets.setAll('outOfBoundsKill', true);
     this.bullets.setAll('checkWorldBounds', true);
     this.shoot_s = this.game.add.sound('shot');
@@ -115,17 +115,17 @@ Tri.prototype = {
 
     // Controls
     if (this.cursors.left.isDown || aKey.isDown)
-        this.sprite.angle -= 5;
+        this.sprite.angle -= 4.5;
     else if (this.cursors.right.isDown || dKey.isDown)
-        this.sprite.angle += 5;
+        this.sprite.angle += 4.5;
 
     if (this.cursors.up.isDown || wKey.isDown)
-        this.currentSpeed = 500;
+        this.currentSpeed = 550;
     else if (this.cursors.down.isDown || sKey.isDown)
       this.currentSpeed = 0; //Drift
     else
         if (this.currentSpeed > 0)
-            this.currentSpeed -= 4;
+            this.currentSpeed -= 12;
 
     spaceKey.onDown.add(this.overloadShield, this);
 

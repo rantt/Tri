@@ -38,7 +38,8 @@ Game.Load.prototype = {
     tri = new Tri(game);
     tri.preload();
 
-    this.game.load.image('bullet','assets/bullet.png');
+    this.game.load.image('pbullet','assets/pbullet.png');
+    this.game.load.image('ebullet','assets/ebullet.png');
     this.game.load.atlasXML('enemy','assets/enemy_sheet.png','assets/enemy_sheet.xml');
     this.game.load.image('pixel','assets/pixel.png');
     this.game.load.atlasXML('powerup','assets/powerup_sheet.png','assets/powerup_sheet.xml');
