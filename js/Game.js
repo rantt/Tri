@@ -40,6 +40,7 @@ var scoreText;
 var healthText;
 var overloadText;
 var restartText;
+var twitterButton;
 var musicOn = true;
 
 var main = {
@@ -105,6 +106,7 @@ var main = {
     restartText.fixedToCamera = true;
     restartText.visible = false;
 
+
   },
 
   update: function() {
@@ -147,9 +149,15 @@ var main = {
     if (tri.alive == false) {
       msg =  "Your Score: " + score + "\n";
       msg += "You Killed: " + kills + "!\n";
-      msg += "~Press Space to Restart~";
+      msg += "~Press Space to Restart~\n";
+      msg += "Tweet your highscore!";
       restartText.setText(msg);
       restartText.visible = true;
+
+      twitterButton = game.add.button(w/2, h/2+110,'twitter', this.twitter, this);
+      twitterButton.anchor.setTo(0.5,0.5);
+      twitterButton.fixedToCamera = true;
+
       if (spaceKey.isDown ) {
         this.reset();
       }
@@ -224,6 +232,9 @@ var main = {
 
 
     this.game.state.start('main');
+  },
+  twitter: function() {
+    window.open('http://twitter.com/share?text=I+just+scored+'+score+'+in+"Tri"+See+if+you+can+beat+it+at&via=rantt_&url=http://www.divideby5.com/games/tri/', '_blank');
   },
   hitPowerUp:  function(tri_sprite,powerup) {
     this.powerup_s.play();

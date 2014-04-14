@@ -34,6 +34,7 @@ Game.Load.prototype = {
     this.game.load.image('background','assets/background.png');
     this.game.load.image('title','assets/title.png');
     this.game.load.image('instructions','assets/instructions.png');
+    this.game.load.image('twitter','assets/twitter.png');
 
     tri = new Tri(game);
     tri.preload();
