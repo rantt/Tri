@@ -250,16 +250,16 @@ var main = {
 
   },
 
-  render: function() {
+  // render: function() {
     // game.debug.text('Health: ' + tri.health, 32, 96);
     // game.debug.text('Kills: ' + kills, 32, 112);
-    game.debug.text('powerupsTotal: ' + powerupsTotal, 32, 112);
-    game.debug.text('powerupsMax: ' + powerupsMax, 32, 124);
+    // game.debug.text('powerupsTotal: ' + powerupsTotal, 32, 112);
+    // game.debug.text('powerupsMax: ' + powerupsMax, 32, 124);
     // if ((waveTimer - game.time.now) > 0) {
     //   game.debug.text('respan in:' + (waveTimer - game.time.now),32,132);
     // }
 
-  }
+  // }
 
 }
 
