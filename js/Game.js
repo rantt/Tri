@@ -21,6 +21,8 @@ var tri;
 var wave = 0;
 
 var powerups = [];
+var powerupsTotal = 0;
+var powerupsMax = 5;
 
 var waveTimer = 0;
 var waveSpawn = 0;
@@ -133,7 +135,15 @@ var main = {
 
     for (var i=0; i < powerups.length;i++){
       powerups[i].sprite.rotation += 0.05;
+
+      // Automatically pickup powerup if close
+      if (this.game.physics.arcade.distanceBetween(powerups[i].sprite, tri.sprite) < 200)
+      {
+        this.game.physics.arcade.velocityFromRotation(this.game.physics.arcade.angleBetween(powerups[i].sprite, tri.sprite), 800, powerups[i].sprite.body.velocity);
+      }
+
       this.game.physics.arcade.overlap(tri.sprite, powerups[i].sprite, this.hitPowerUp, null, this);
+
     }
 
     if ((waveTimer - game.time.now) > 0) {
@@ -161,6 +171,8 @@ var main = {
         this.reset();
       }
     }
+
+
 
     // Toggle Music
     muteKey.onDown.add(this.toggleMute, this);
@@ -222,6 +234,7 @@ var main = {
   hitPowerUp:  function(tri_sprite,powerup) {
     this.powerup_s.play();
     powerup.kill();
+    powerupsTotal -= 1;
     if (powerup.name === 0 && tri.health < 20) {
       tri.health += 2;
     }else if (powerup.name === 1) {
@@ -237,16 +250,16 @@ var main = {
 
   },
 
-  // render: function() {
-  //   game.debug.text('Health: ' + tri.health, 32, 96);
-  //   game.debug.text('Kills: ' + kills, 32, 112);
-  //   game.debug.text('test: ' + test, 32, 112);
-  //   game.debug.text('wave: ' + wave, 32, 124);
-  //   if ((waveTimer - game.time.now) > 0) {
-  //     game.debug.text('respan in:' + (waveTimer - game.time.now),32,132);
-  //   }
-  //
-  // }
+  render: function() {
+    // game.debug.text('Health: ' + tri.health, 32, 96);
+    // game.debug.text('Kills: ' + kills, 32, 112);
+    game.debug.text('powerupsTotal: ' + powerupsTotal, 32, 112);
+    game.debug.text('powerupsMax: ' + powerupsMax, 32, 124);
+    // if ((waveTimer - game.time.now) > 0) {
+    //   game.debug.text('respan in:' + (waveTimer - game.time.now),32,132);
+    // }
+
+  }
 
 }
 
