@@ -32,7 +32,7 @@ var enemies = [];
 var enemyBullets;
 var enemiesTotal = 0;
 var enemiesAlive = 0;
-var enemiesMax = 15;
+var enemiesMax = 20;
 
 var enemyText;
 var waveText;
@@ -120,7 +120,6 @@ var main = {
         if (enemies[i].alive)
         {
             enemiesAlive++;
-            this.game.physics.arcade.collide(tri.sprite, enemies[i].ship);
             this.game.physics.arcade.overlap(tri.bullets, enemies[i].ship, this.bulletHitEnemy, null, this);
             enemies[i].update();
         }
@@ -202,23 +201,7 @@ var main = {
   reset: function() {
     this.music.stop();
     tri.alive = true;
-    tri.health = 5;
-
-    //Clear Enemies
-    for (var i = 0; i < enemies.length; i++)
-    {
-        if (enemies[i].alive)
-        {
-          enemies[i].alive = false;
-          enemiesAlive -= 1;
-          enemies[i].ship.kill();
-        }
-    }
-
-    //Clear Powerups
-    for (var i=0; i < powerups.length;i++){
-      powerups[i].sprite.kill();
-    }
+    tri.health = 10;
 
     //Reset Variables
     powerups = [];
@@ -239,8 +222,8 @@ var main = {
   hitPowerUp:  function(tri_sprite,powerup) {
     this.powerup_s.play();
     powerup.kill();
-    if (powerup.name === 0 && tri.health < 12) {
-      tri.health += 1;
+    if (powerup.name === 0 && tri.health < 20) {
+      tri.health += 2;
     }else if (powerup.name === 1) {
       tri.powerupTimer = game.time.now + 5000;
     }

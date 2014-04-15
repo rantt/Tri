@@ -3,7 +3,7 @@ Tri = function(game) {
   this.sprite = null;
   this.shieldBar = null;
   this.bullets = null;
-  this.health = 5;
+  this.health = 10;
   this.alive = true;
   this.currentSpeed = 0;
   this.fireRate = 250;
@@ -52,7 +52,7 @@ Tri.prototype = {
 
     // Setup ship movement, decelerate when not moving forward
     this.game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
-    this.sprite.body.drag.set(0.2);
+    this.sprite.body.drag.set(0.5);
     this.sprite.body.maxVelocity.setTo(800, 800);
     this.sprite.body.collideWorldBounds = true;
     this.sprite.scale.x = 1.2;
@@ -96,10 +96,10 @@ Tri.prototype = {
 
     //  Show a white shield bar if Player has enough shield to overload
     if (this.health > 3) {
-      this.shieldBar.scale.x = this.health/12;
+      this.shieldBar.scale.x = this.health/20;
       this.shieldBar.frame = 0;
     }else {
-      this.shieldBar.scale.x = this.health/12;
+      this.shieldBar.scale.x = this.health/20;
       this.shieldBar.frame = 1;
     }
 
@@ -194,7 +194,7 @@ Tri.prototype = {
         //BOOOOOM
         this.emitter.x = sprite.x;
         this.emitter.y = sprite.y;
-        this.emitter.start(true, 5000, null, 10000);
+        this.emitter.start(true, 5000, null, 1000);
 
     }else {
       this.shieldHit_s.play();
