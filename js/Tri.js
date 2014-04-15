@@ -11,6 +11,7 @@ Tri = function(game) {
   this.powerupTimer = 0;
   this.emitter = null;
   this.overloadTimer = 0;
+  this.overload = false;
 };
 
 Tri.prototype = {
@@ -163,6 +164,7 @@ Tri.prototype = {
       if (this.health > 3  ) {
         this.health -= 3;
         this.overload_s.play();
+        this.overload = true;
 
         //Destroy All Enemies
         for (var i = 0; i < enemies.length; i++)
@@ -174,6 +176,7 @@ Tri.prototype = {
             }
 
         }
+        this.overload = false;
       }else {
         this.overloadTimer = game.time.now+1000;
       }

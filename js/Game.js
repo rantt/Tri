@@ -6,8 +6,8 @@ function rand (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'playScreen');
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'playScreen');
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'playScreen');
+// var game = new Phaser.Game(800, 600, Phaser.AUTO, 'playScreen');
 var test;
 var wKey;
 var aKey;
@@ -22,7 +22,7 @@ var wave = 0;
 
 var powerups = [];
 var powerupsTotal = 0;
-var powerupsMax = 5;
+var powerupsMax = 8;
 
 var waveTimer = 0;
 var waveSpawn = 0;
@@ -251,14 +251,14 @@ var main = {
   },
 
   // render: function() {
-    // game.debug.text('Health: ' + tri.health, 32, 96);
-    // game.debug.text('Kills: ' + kills, 32, 112);
-    // game.debug.text('powerupsTotal: ' + powerupsTotal, 32, 112);
-    // game.debug.text('powerupsMax: ' + powerupsMax, 32, 124);
-    // if ((waveTimer - game.time.now) > 0) {
-    //   game.debug.text('respan in:' + (waveTimer - game.time.now),32,132);
-    // }
-
+  //   // game.debug.text('Health: ' + tri.health, 32, 96);
+  //   // game.debug.text('Kills: ' + kills, 32, 112);
+  //   game.debug.text('overload: ' + tri.overload, 32, 112);
+  //   // game.debug.text('powerupsMax: ' + powerupsMax, 32, 124);
+  //   // if ((waveTimer - game.time.now) > 0) {
+  //   //   game.debug.text('respan in:' + (waveTimer - game.time.now),32,132);
+  //   // }
+  //
   // }
 
 }

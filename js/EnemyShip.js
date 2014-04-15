@@ -87,7 +87,7 @@ EnemyShip.prototype = {
     this.emitter.start(true, 1000, null, 128);
 
     // 50% PowerUp drop rate
-    if ((rand(1,2) % 2) && (powerupsTotal < powerupsMax)) {
+    if ((rand(1,2) % 2) && (powerupsTotal < powerupsMax) && (this.tri.overload == false)) {
         powerups.push(new PowerUp(this.ship, game));
         powerupsTotal += 1;
     }
